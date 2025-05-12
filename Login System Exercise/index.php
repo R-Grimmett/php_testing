@@ -1,3 +1,8 @@
+<?php
+require_once 'includes/config_session.inc.php';
+require_once 'includes/signup_view.inc.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +24,40 @@
 <div class="container-fluid">
     <div class="row mt-5 mb-3">
         <h1 class="ms-5">Simple PHP User System</h1>
+    </div>
+    <div class="row row-cols-2 g-5 p-3">
+        <div class="col-6">
+            <h2>Login</h2>
+            <form action="includes/signup.inc.php" method="post">
+                <div class="mb-3">
+                    <input class="form-control" type="text" name="username" placeholder="Username">
+                </div>
+                <div class="mb-3">
+                    <input class="form-control" type="password" name="password" placeholder="Password">
+                </div>
+                <div class="mb-3">
+                    <input class="form-control" type="email" name="email" placeholder="Email Address">
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-6">
+            <h2>Signup</h2>
+            <form action="includes/signup.inc.php" method="post">
+                <?php
+                signupInput();
+                ?>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Signup</button>
+                </div>
+            </form>
+
+            <?php
+            checkSignupErrors();
+            ?>
+        </div>
     </div>
 </div>
 
